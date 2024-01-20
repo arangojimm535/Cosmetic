@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 function ProductCard ({ product }) {
   const resumeDescripcion = (descripcion) => {
@@ -7,11 +8,11 @@ function ProductCard ({ product }) {
   }
   return (
     <motion.div
-      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.95 }}
       className=' rounded-xl bg-slate-50 shadow-2xl min-h-min grid grid-flow-row'
     >
-      <motion.img
-        whileHover={{ scale: 1.2 }}
+      <img
         className='object-cover rounded-t-xl overflow-hidden max-w-full'
         src={product.images[0]}
       />
@@ -21,19 +22,22 @@ function ProductCard ({ product }) {
         <p className='sm:text-sm md:text-xl text-center'>
           {product.category.name}
         </p>
-        <h2
-          // onClick={() => getOneProduct(product.id)}
+        <Link
+          to={'/product/' + product.id}
           className='sm:text-sm md:text-3xl font-bold text-center'
         >
           {product.title}
-        </h2>
+        </Link>
         <p className='sm:text-sm md:text-xl text-center opacity-60'>
           {resumeDescripcion(product.description)}
         </p>
-        <p className='md:text-4xl font-bold text-center'>${product.price}</p>
-        <button className='bg-red-100 rounded-full md:p-1 sm:mx-4 sm:my-2 md:mx-10 md:my-2 '>
-          Comprar
-        </button>
+        <p className='md:text-4xl font-semibold text-center'>${product.price}</p>
+        <Link
+          to={'/product/' + product.id}
+          className='text-center font-semibold bg-orange-100 hover:text-white hover:bg-orange-200 rounded-xl md:p-1 sm:mx-4 sm:my-2 md:mx-8 md:my-2 '
+        >
+          Ver Produto
+        </Link>
       </div>
     </motion.div>
   )

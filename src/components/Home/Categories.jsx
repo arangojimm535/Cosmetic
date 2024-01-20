@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import { AppContext } from '../context/Products/AppContext'
+import { useAppContext } from '../../context/Products/AppContext'
 import { motion } from 'framer-motion'
 
 export function Categories () {
-  const { categorias } = useContext(AppContext)
+  const { categorias } = useAppContext()
 
   return (
     <motion.div
@@ -21,7 +20,7 @@ export function Categories () {
             transition: { duration: 0.5 }
           }}
           whileTap={{ scale: 0.9 }}
-          className='sm:flex sm:flex-col sm:justify-center md:flex md:items-center md:justify-center bg-red-50 rounded-full'
+          className='sm:flex sm:flex-col sm:justify-center md:flex md:items-center md:justify-center bg-orange-100 rounded-full'
           key={categoria.id}
         >
           <motion.img

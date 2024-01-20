@@ -34,14 +34,20 @@ export function Carrousel ({ images, measures }) {
     setImageIndex((page + newDirection) % 3)
   }
 
-  // setInterval((page) => {
-  //   if (page > 2) {
-  //     setPage([0, 0])
-  //   }
-  //   paginate(page, 1)
-  // }, 6000)
-
   return (
+  // <motion.div
+  //   className='flex gap-5 mx-auto snap-x snap-mandatory snap-always overflow-y-hidden cursor-pointer relative'
+  //   style={
+  //     measures
+  //   }
+  // >
+  //   {images.map((image) => (
+  //     <motion.img
+  //       key={image.id} id={image.id} style={{ measures }} src={image.imagen} alt='' className='rounded-3xl min-w-full snap-start'
+  //     />
+  //   ))}
+
+    // </motion.div>
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

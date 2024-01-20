@@ -1,4 +1,4 @@
-import { SET_ONE_PRODUCT, SET_PRODUCTS, SET_VIEW_LOGIN, CHANGE_VIEW_LOGIN } from '../types'
+import { SET_ONE_PRODUCT, SET_PRODUCTS, SET_VIEW_LOGIN, CHANGE_VIEW_LOGIN, SET_VIEW_CART, SET_VIEW_PRODUCT, SET_PRODUCTS_CART } from '../types'
 
 export default (state, action) => {
   const { payload, type } = action
@@ -11,7 +11,7 @@ export default (state, action) => {
     case SET_ONE_PRODUCT:
       return {
         ...state,
-        selectedProduct: payload
+        product: payload
       }
     case SET_VIEW_LOGIN:
       return {
@@ -21,7 +21,22 @@ export default (state, action) => {
     case CHANGE_VIEW_LOGIN:
       return {
         ...state,
-        register: payload
+        registering: payload
+      }
+    case SET_VIEW_CART:
+      return {
+        ...state,
+        showCart: payload
+      }
+    case SET_VIEW_PRODUCT:
+      return {
+        ...state,
+        showProduct: payload
+      }
+    case SET_PRODUCTS_CART:
+      return {
+        ...state,
+        productsCart: payload
       }
     default:
       return state

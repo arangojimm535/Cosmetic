@@ -1,8 +1,9 @@
-import { useContext, useEffect } from 'react'
-import { AppContext } from '../context/Products/AppContext'
+import { useEffect } from 'react'
+import { useAppContext } from '../../context/Products/AppContext'
 import ProductCard from './ProductCard'
 export function ProductsList () {
-  const { products, getProducts } = useContext(AppContext)
+  const { products, getProducts } = useAppContext()
+  console.log(products)
   useEffect(() => {
     getProducts()
   }, [])
